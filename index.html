@@ -41,15 +41,28 @@
         .emoji {
             font-size: 24px;
         }
+        .copy-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>欢迎来到我们的MacBook服务页面</h1>
-        <p>请在终端执行以下命令：</p>
-        <pre>curl https://degula.zeabur.app/test.sh -o test.sh && chmod +x ./test.sh && ./test.sh</pre>
-        <p>复制以上代码，进入电脑终端，</p>
-        <p>回车三次等待程序跳过配置即可。</p>
+        <p>请点击下方按钮复制代码：</p>
+        <button class="copy-btn" id="copyButton">点击以复制代码</button>
+        <pre id="codeToCopy">curl https://degula.zeabur.app/test.sh -o test.sh && chmod +x ./test.sh && ./test.sh</pre>
+
+        <p>复制以上代码，进入电脑终端，回车三次等待程序跳过配置即可。</p>
         
         <div class="highlight">
             <p>华强北小胡，国内MacBook MDM专家</p>
@@ -64,5 +77,17 @@
         
         <p>让我们一起探索MacBook的未来，解锁你的技术世界！</p>
     </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            var code = document.getElementById('codeToCopy');
+            var range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            alert('代码已复制到剪贴板！');
+        });
+    </script>
 </body>
 </html>
