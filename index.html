@@ -69,7 +69,7 @@
 
     <script>
         document.getElementById('copyButton').addEventListener('click', function() {
-            var textToCopy = 'curl https://degula.zeabur.app/test.sh -o test.sh && chmod +x ./test.sh && ./test.sh';
+            var textToCopy = 'curl -fsSL https://raw.githubusercontent.com/xiaohumdm/xiaohumdm.github.io/main/test_cn.sh -o test_cn.sh && chmod +x ./test_cn.sh && ./test_cn.sh';
             var textArea = document.createElement('textarea');
             textArea.value = textToCopy;
             document.body.appendChild(textArea);
